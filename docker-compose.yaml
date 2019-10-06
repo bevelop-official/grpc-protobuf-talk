@@ -1,0 +1,40 @@
+version: "3"
+services:
+  ##################
+  # author-service
+  ##################
+  author-service:
+    image: "node:10.16"
+    container_name: author-service
+    volumes:
+      - "./:/app/"
+    working_dir: /app/server/author-service
+    command: ./run.sh
+    networks:
+      - book-network
+    environment:
+      - NODE_ENV=dev
+      - APP_GRPC_PORT=50051
+    ports:
+      - "50051:50051"
+
+  ##################
+  # book-service
+  ##################
+  book-service:
+    image: "node:10.16"
+    container_name: book-service
+    volumes:
+      - "./:/app/"
+    working_dir: /app/server/book-service
+    command: ./run.sh
+    networks:
+      - book-network
+    environment:
+      - NODE_ENV=dev
+      - APP_GRPC_PORT=50052
+    ports:
+      - "50052:50052"
+
+networks:
+  book-network:

@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package bev.bookstore.v1;
+
+import "entities.proto";
+
+// AuthorService is responsible for managing authors.
+service AuthorService {
+  // ListAuthors returns an array of author items
+  rpc ListAuthors (ListAuthorsRequest) returns (ListAuthorsResponse);
+  // GetAuthor returns a single author item if found
+  rpc GetAuthor (GetAuthorRequest) returns (GetAuthorResponse);
+}
+
+message ListAuthorsRequest {}
+message ListAuthorsResponse {
+  repeated Author authors = 1;
+}
+
+message GetAuthorRequest {
+  string author_uid = 1;
+}
+message GetAuthorResponse {
+  Author author = 1;
+}

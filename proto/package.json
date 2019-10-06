@@ -1,0 +1,19 @@
+{
+  "name": "protocol-buffers",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "compile-node": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./generated/node/ --grpc_out=./generated/node --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` -I ./ *.proto",
+    "compile-node-ts": "protoc-gen-grpc-ts --ts_out=service=true:./generated/node -I ./ ./*.proto"
+  },
+  "author": "Max Sommer, bevelop GmbH",
+  "license": "GNU GPLv3",
+  "dependencies": {
+    "google-protobuf": "^3.9.0-rc.1",
+    "grpc-tools": "^1.8.0",
+    "grpc_tools_node_protoc_ts": "^2.5.4",
+    "protoc": "^1.0.3",
+    "protoc-gen-grpc": "^1.3.2",
+    "ts-protoc-gen": "^0.10.0"
+  }
+}

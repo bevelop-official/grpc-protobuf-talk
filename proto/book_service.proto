@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package bev.bookstore.v1;
+
+import "entities.proto";
+
+// BookService is responsible for managing books and searching the library.
+service BookService {
+  // ListBooksByGenre returns a list of book items by genre
+  rpc ListBooksByGenre (ListBooksByGenreRequest) returns (ListBooksByGenreResponse);
+  // SearchBook returns a list of book items related to the search query
+  rpc SearchBook (SearchBookRequest) returns (SearchBookResponse);
+}
+
+message ListBooksByGenreRequest {
+  Genre genre = 1;
+}
+message ListBooksByGenreResponse {
+  repeated Book books = 1;
+}
+
+message SearchBookRequest {
+  string query = 1;
+}
+message SearchBookResponse {
+  repeated Book results = 1;
+}

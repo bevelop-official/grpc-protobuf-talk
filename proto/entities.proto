@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package bev.bookstore.v1;
+
+// Genre is an enumeration of all genres available.
+enum Genre {
+  GENRE_INVALID = 0;
+  GENRE_UNSPECIFIED = 1;
+  GENRE_NOVEL = 2;
+  GENRE_THRILLER = 3;
+  GENRE_COMEDY = 4;
+}
+
+// Book represents the book entity.
+message Book {
+  string book_uid = 1;
+  repeated Author authors = 2;
+  string title = 3;
+  string description = 4;
+  Genre genre = 5;
+  string published_at = 6;
+  oneof price_oneof {
+    int32 price = 7;
+  }
+}
+
+// Author represents the author entity.
+message Author {
+  string author_uid = 1;
+  string name = 2;
+  string birthdate = 3;
+}
