@@ -30,6 +30,8 @@ docker-compose up -d # does the same but disattaches from logs (use docker-compo
 
 [BloomRPC](https://github.com/uw-labs/bloomrpc) is a great gRPC
 client which you can use to send requests to the services.  
+If you want to use another GUI or CLI client you can find a pretty complete list
+on the [awesome-grpc](https://github.com/grpc-ecosystem/awesome-grpc) list.
 URIs to reach those when started with `docker-compose` as described
 above are:
 
