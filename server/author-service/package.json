@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "start": "ts-node-dev ./src/server.ts"
+    "start": "npx ts-node-dev ./src/server.ts"
   },
   "author": "Max Sommer, bevelop GmbH",
   "license": "GNU GPLv3",
