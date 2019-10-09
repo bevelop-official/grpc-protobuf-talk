@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "compile-node": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./generated/node/ --grpc_out=./generated/node --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` -I ./ *.proto",
+    "compile": "npm run compile-node-js && npm run compile-node-ts",
+    "compile-node-js": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./generated/node/ --grpc_out=./generated/node --plugin=protoc-gen-grpc=`which grpc_tools_node_protoc_plugin` -I ./ *.proto",
     "compile-node-ts": "protoc-gen-grpc-ts --ts_out=service=true:./generated/node -I ./ ./*.proto"
   },
   "author": "Max Sommer, bevelop GmbH",
